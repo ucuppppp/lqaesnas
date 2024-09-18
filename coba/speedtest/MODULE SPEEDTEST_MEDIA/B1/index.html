@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Color Change on Click</title>
+    <style>
+        .container {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 20px;
+        }
+
+        input[type="checkbox"] {
+            /* display: none; */
+        }
+
+        label {
+            display: block;
+            width: 80px;
+            height: 80px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border: 1px solid black;
+            cursor: pointer;
+        }
+
+        input[type="checkbox"]:checked + label {
+            background-color: gold;
+        }
+
+        /* Using the ::after pseudo-element to show the label */
+        #check1:checked ~ p::after {
+            content: attr(data-value);
+            color: green;
+            font-weight: bold;
+        }
+
+        #check2:checked ~ p::after {
+            content: attr(data-value);
+            color: green;
+            font-weight: bold;
+        }
+
+        #check3:checked ~ p::after {
+            content: attr(data-value);
+            color: green;
+            font-weight: bold;
+        }
+
+        #check4:checked ~ p::after {
+            content: attr(data-value);
+            color: green;
+            font-weight: bold;
+        }
+
+        p {
+            font-size: 24px;
+            font-weight: bold;
+            margin-top: 20px;
+            position: relative;
+            width: 80px;
+            height: 80px;
+        }
+
+        /* Hidden content attribute for each checkbox to be used */
+        #check1, #check2, #check3, #check4 {
+            display: none;
+        }
+
+    </style>
+</head>
+<body>
+    <div class="container">
+        <input type="checkbox" id="check1" data-value="10">
+        <label for="check1">10</label>
+        <input type="checkbox" id="check2" data-value="32">
+        <label for="check2">32</label>
+        <input type="checkbox" id="check3" data-value="64">
+        <label for="check3">64</label>
+        <input type="checkbox" id="check4" data-value="-15">
+        <label for="check4">-15</label>
+        <p>Sum:</p>
+    </div>
+</body>
+</html>
