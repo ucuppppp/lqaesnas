@@ -3,17 +3,13 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Color Change on Click</title>
+    <title>Penjumlahan Statis dengan HTML dan CSS</title>
     <style>
         .container {
             display: flex;
+            flex-direction: column;
             align-items: center;
-            justify-content: center;
             gap: 20px;
-        }
-
-        input[type="checkbox"] {
-            /* display: none; */
         }
 
         label {
@@ -25,64 +21,126 @@
             justify-content: center;
             border: 1px solid black;
             cursor: pointer;
+            background-color: lightgray;    
+            font-size: 24px;
+        }
+
+        input[type="checkbox"] {
+            display: none;
         }
 
         input[type="checkbox"]:checked + label {
             background-color: gold;
         }
 
-        /* Using the ::after pseudo-element to show the label */
-        #check1:checked ~ p::after {
-            content: attr(data-value);
-            color: green;
-            font-weight: bold;
-        }
-
-        #check2:checked ~ p::after {
-            content: attr(data-value);
-            color: green;
-            font-weight: bold;
-        }
-
-        #check3:checked ~ p::after {
-            content: attr(data-value);
-            color: green;
-            font-weight: bold;
-        }
-
-        #check4:checked ~ p::after {
-            content: attr(data-value);
-            color: green;
-            font-weight: bold;
-        }
-
-        p {
+        .results p {
+            display: none;
             font-size: 24px;
             font-weight: bold;
             margin-top: 20px;
-            position: relative;
-            width: 80px;
-            height: 80px;
+            text-align: center;
         }
 
-        /* Hidden content attribute for each checkbox to be used */
-        #check1, #check2, #check3, #check4 {
-            display: none;
+        /* Tampilkan hasil untuk satu checkbox */
+        #check1:checked ~ .results #result1 {
+            display: block;
         }
 
+        #check2:checked ~ .results #result2 {
+            display: block;
+        }
+
+        #check3:checked ~ .results #result3 {
+            display: block;
+        }
+
+        #check4:checked ~ .results #result4 {
+            display: block;
+        }
+
+        /* Tampilkan hasil penjumlahan untuk dua checkbox */
+        #check1:checked ~ #check2:checked ~ .results #result12 {
+            display: block;
+        }
+
+        #check1:checked ~ #check3:checked ~ .results #result13 {
+            display: block;
+        }
+
+        #check1:checked ~ #check4:checked ~ .results #result14 {
+            display: block;
+        }
+
+        #check2:checked ~ #check3:checked ~ .results #result23 {
+            display: block;
+        }
+
+        #check2:checked ~ #check4:checked ~ .results #result24 {
+            display: block;
+        }
+
+        #check3:checked ~ #check4:checked ~ .results #result34 {
+            display: block;
+        }
+
+        /* Tampilkan hasil penjumlahan untuk tiga checkbox */
+        #check1:checked ~ #check2:checked ~ #check3:checked ~ .results #result123 {
+            display: block;
+        }
+
+        #check1:checked ~ #check2:checked ~ #check4:checked ~ .results #result124 {
+            display: block;
+        }
+
+        #check1:checked ~ #check3:checked ~ #check4:checked ~ .results #result134 {
+            display: block;
+        }
+
+        #check2:checked ~ #check3:checked ~ #check4:checked ~ .results #result234 {
+            display: block;
+        }
+
+        /* Tampilkan hasil penjumlahan untuk semua checkbox */
+        #check1:checked ~ #check2:checked ~ #check3:checked ~ #check4:checked ~ .results #result1234 {
+            display: block;
+        }
     </style>
 </head>
 <body>
     <div class="container">
-        <input type="checkbox" id="check1" data-value="10">
-        <label for="check1">10</label>
-        <input type="checkbox" id="check2" data-value="32">
-        <label for="check2">32</label>
-        <input type="checkbox" id="check3" data-value="64">
-        <label for="check3">64</label>
-        <input type="checkbox" id="check4" data-value="-15">
-        <label for="check4">-15</label>
-        <p>Sum:</p>
+        <input type="checkbox" id="check1">
+        <label for="check1" data-value="10">10</label>
+        <input type="checkbox" id="check2">
+        <label for="check2" data-value="32">32</label>
+        <input type="checkbox" id="check3">
+        <label for="check3" data-value="64">64</label>
+        <input type="checkbox" id="check4">
+        <label for="check4" data-value="-15">-15</label>
+
+        <div class="results">
+            <!-- Hasil untuk satu checkbox -->
+            <p id="result1">Hasil: 10</p>
+            <p id="result2">Hasil: 32</p>
+            <p id="result3">Hasil: 64</p>
+            <p id="result4">Hasil: -15</p>
+
+            <!-- Hasil penjumlahan untuk dua checkbox -->
+            <p id="result12">Hasil: 42 (10 + 32)</p>
+            <p id="result13">Hasil: 74 (10 + 64)</p>
+            <p id="result14">Hasil: -5 (10 + -15)</p>
+            <p id="result23">Hasil: 96 (32 + 64)</p>
+            <p id="result24">Hasil: 17 (32 + -15)</p>
+            <p id="result34">Hasil: 49 (64 + -15)</p>
+
+            <!-- Hasil penjumlahan untuk tiga checkbox -->
+            <p id="result123">Hasil: 106 (10 + 32 + 64)</p>
+            <p id="result124">Hasil: 27 (10 + 32 + -15)</p>
+            <p id="result134">Hasil: 59 (10 + 64 + -15)</p>
+            <p id="result234">Hasil: 81 (32 + 64 + -15)</p>
+
+            <!-- Hasil penjumlahan untuk semua checkbox -->
+            <p id="result1234">Hasil: 91 (10 + 32 + 64 + -15)</p>
+        </div>
     </div>
 </body>
 </html>
