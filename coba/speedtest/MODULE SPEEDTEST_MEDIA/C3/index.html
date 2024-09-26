@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Live Data Chart</title>
+    <style>
+        body {
+            display: flex;
+            flex-direction: column; /* Arrange items in a column */
+            justify-content: center;
+            align-items: center;
+            height: 100vh; /* Full viewport height */
+            margin: 0; /* Remove default margin */
+            background: #f4f4f4; /* Light background color */
+        }
+        h1 {
+            margin-bottom: 20px; /* Space between the title and canvas */
+        }
+        canvas {
+            background: #f4f4f4; /* Set a white background for the canvas */
+        }
+    </style>
+</head>
+<body>
+    <h1>Live Data: <span></span></h1>
+    <canvas id="liveChart" width="500" height="300"></canvas>
+    <script src="liveChart.js"></script>
+</body>
+</html>

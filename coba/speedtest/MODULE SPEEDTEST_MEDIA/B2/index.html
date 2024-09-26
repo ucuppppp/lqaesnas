@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>B2</title>
+    <style>
+        body {
+            background-color: #f4f4f4;
+            display: flex;
+            flex-direction: column;
+            padding: 20px;
+        }
+        h1 {
+            margin-bottom: 20px;
+        }
+        label {
+            position: relative;
+            display: flex;
+            align-items: center;
+            margin-bottom: 10px;
+            font-size: 18px;
+        }
+        input[type="checkbox"] {
+            appearance: none;
+            background-color: #f4f4f4;
+            margin-right: 0.5em; /* Jarak antara checkbox dan label */
+            width: 1.15em;
+            height: 1.30em;
+            border: 0.5px solid gray;
+            border-radius: 0.15em;
+            cursor: pointer; /* Mengubah kursor saat hover */
+            position: relative; /* Menambahkan posisi relatif */
+        }
+        /* Simbol centang kustom */
+        input[type="checkbox"]::after {
+            content: '⩗'; /* Simbol centang */
+            color: black; /* Warna centang */
+            position: absolute;
+            left: 0em; /* Sesuaikan posisi */
+            top: -0.25em; /* Sesuaikan posisi */
+            font-size: 1.5em; /* Ukuran font centang */
+            opacity: 0; /* Mulai dengan tersembunyi */
+            transition: opacity 0.3s; /* Transisi saat centang muncul */
+        }
+        input[type="checkbox"]:checked::after {
+            opacity: 1; /* Tampilkan centang saat dicentang */
+        }
+        input[type="checkbox"]:checked {
+            background-color: #f4f4f4; 
+            border: none; /* Menghapus border saat dicentang */
+        }
+        span {
+            position: relative;
+            display: inline; /* Memungkinkan posisi relatif untuk garis tengah */
+        }
+        
+        /* input[type="checkbox"]:checked + span{
+            text-decoration: line-through;
+        } */
+
+        /* Garis tengah yang akan di-animasi */
+        span::after {
+            content: "";
+            position: absolute;
+            width: 0;
+            height: 2px;
+            top: 50%;
+            left: 0;
+            background-color: gray;
+            transition: width 1s ease;
+            }
+            /* Jika checkbox di-check, animasi garis dan gaya teks akan terjadi */
+        input[type="checkbox"]:checked + span::after {
+                width: 100%; /* Mengatur lebar garis menjadi 100% saat dicentang */
+        }
+        input[type="checkbox"]:checked + span {
+            color: gray; /* Gaya teks saat dicentang */
+            font-style: italic; /* Gaya teks italic saat dicentang */
+        }
+    </style>
+</head>
+<body>
+    <h1>Todo List</h1>
+    <label>
+        <input type="checkbox" class="custom-checkbox" />
+        <span>List 1</span>
+    </label>
+    <label>
+        <input type="checkbox" class="custom-checkbox" />
+        <span>List 2</span>
+    </label>
+    <label>
+        <input type="checkbox" class="custom-checkbox" />
+        <span>List 3</span>
+    </label>
+    <label>
+        <input type="checkbox" class="custom-checkbox" />
+        <span>List 4</span>
+    </label>
+</body>
+</html>
